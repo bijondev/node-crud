@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (contact) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" name="name" id="first-name" value="<%= contact[0].name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" name="number" id="last-name" value="<%= contact[0].number %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="notes" id="username" value="<%= contact[0].notes %>" required >
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success float-right">Update Contact</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
